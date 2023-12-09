@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #092635;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #5C8374;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 10px;
+            background: #5C8374
+        }
+
+        input {
+            padding: 10px;
+            box-sizing: border-box;
+            background: #5C8374
+        }
+
+        button {
+            background-color: #5C8374;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #5C8374;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #5C8374;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5C8374;
+            display: block;
+            margin-top: 10px;
+        }
+     </style>
+</head>
+<body>
+
+    <h2>Number Operations</h2>
+
+    <label for="inputNumber">Enter an Integer: </label>
+    <input type="number" id="inputNumber" min="0" required>
+    <button onclick="calculate()">Calculate</button>
+
+    <h3>Results:</h3>
+    <p id="factorialResult"></p>
+    <p id="sumResult"></p>
+    <p id="averageResult"></p>
+
+      <a href="index.html">Back to Homepage</a>
+
+    <script>
+        function calculate() {
+           
+            var n = parseInt(document.getElementById("inputNumber").value);
+
+           
+            var factorial = 1;
+            var i = 1;
+            while (i <= n) {
+                factorial *= i;
+                i++;
+            }
+
+            
+            var sum = 0;
+            var j = 1;
+            do {
+                sum += j;
+                j++;
+            } while (j <= n);
+
+            
+            var total = 0;
+            for (var k = 1; k <= n; k++) {
+                total += k;
+            }
+            var average = total / n;
+
+            
+            document.getElementById("factorialResult").innerText = "Factorial: " + factorial;
+            document.getElementById("sumResult").innerText = "Sum: " + sum;
+            document.getElementById("averageResult").innerText = "Average: " + average.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
