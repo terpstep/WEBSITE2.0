@@ -1,0 +1,136 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: #092635
+        }
+
+        h1 {
+            color: #9EC8B9;
+        }
+
+        .converter {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #9EC8B9
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #19EC8B9;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            background: #1B4242
+        }
+
+        p {
+            margin: 10px 0;
+            color: #161A30;
+        }
+
+        input::placeholder {
+            color: #9EC8B9;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Converters</h1>
+
+<div class="converter">
+    <h2>Celsius to Fahrenheit Converter</h2>
+
+    <label for="celsiusInput">Enter Celsius:</label>
+    <input type="number" id="celsiusInput" placeholder="Enter temperature in Celsius" oninput="convertCelsiusToFahrenheit()">
+
+    <p id="celsiusToFahrenheitResult">Result: </p>
+</div>
+
+<div class="converter">
+    <h2>Fahrenheit to Celsius Converter</h2>
+
+    <label for="fahrenheitInput">Enter Fahrenheit:</label>
+    <input type="number" id="fahrenheitInput" placeholder="Enter temperature in Fahrenheit" oninput="convertFahrenheitToCelsius()">
+
+    <p id="fahrenheitToCelsiusResult">Result: </p>
+</div>
+
+<div class="converter">
+    <h2>Meters to Feet Converter</h2>
+
+    <label for="metersInput">Enter Meters:</label>
+    <input type="number" id="metersInput" placeholder="Enter length in Meters" oninput="convertMetersToFeet()">
+
+    <p id="metersToFeetResult">Result: </p>
+</div>
+
+<div class="converter">
+    <h2>Feet to Meters Converter</h2>
+
+    <label for="feetInput">Enter Feet:</label>
+    <input type="number" id="feetInput" placeholder="Enter length in Feet" oninput="convertFeetToMeters()">
+
+    <p id="feetToMetersResult">Result: </p>
+</div>
+<a href="index.html">Back to Homepage</a>
+
+<script>
+    function convertCelsiusToFahrenheit() {
+        var celsiusValue = document.getElementById("celsiusInput").value;
+        if (!isNaN(celsiusValue)) {
+            var fahrenheitValue = (celsiusValue * 9/5) + 32;
+            document.getElementById("celsiusToFahrenheitResult").innerText = "Result: " + fahrenheitValue.toFixed(2) + " °F";
+        } else {
+            document.getElementById("celsiusToFahrenheitResult").innerText = "Invalid input. Please enter a valid number.";
+        }
+    }
+
+    function convertFahrenheitToCelsius() {
+        var fahrenheitValue = document.getElementById("fahrenheitInput").value;
+        if (!isNaN(fahrenheitValue)) {
+            var celsiusValue = (fahrenheitValue - 32) * 5/9;
+            document.getElementById("fahrenheitToCelsiusResult").innerText = "Result: " + celsiusValue.toFixed(2) + " °C";
+        } else {
+            document.getElementById("fahrenheitToCelsiusResult").innerText = "Invalid input. Please enter a valid number.";
+        }
+    }
+
+    function convertMetersToFeet() {
+        var metersValue = document.getElementById("metersInput").value;
+        if (!isNaN(metersValue)) {
+            var feetValue = metersValue * 3.281;
+            document.getElementById("metersToFeetResult").innerText = "Result: " + feetValue.toFixed(2) + " feet";
+        } else {
+            document.getElementById("metersToFeetResult").innerText = "Invalid input. Please enter a valid number.";
+        }
+    }
+
+    function convertFeetToMeters() {
+        var feetValue = document.getElementById("feetInput").value;
+        if (!isNaN(feetValue)) {
+            var metersValue = feetValue / 3.281;
+            document.getElementById("feetToMetersResult").innerText = "Result: " + metersValue.toFixed(2) + " meters";
+        } else {
+            document.getElementById("feetToMetersResult").innerText = "Invalid input. Please enter a valid number.";
+        }
+    }
+</script>
+
+</body>
+</html>
